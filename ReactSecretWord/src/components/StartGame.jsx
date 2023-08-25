@@ -1,8 +1,11 @@
 import './StartGame.css';
 
-const StartGame = () => {
+const StartGame = ({End}) => {
   return (
-    <div>StartGame</div>
+    <div> 
+        <h2>StartGame</h2>
+        <button onClick={End}>Fim de jogo</button>
+    </div>
   )
 }
 

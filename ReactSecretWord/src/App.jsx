@@ -8,7 +8,7 @@ import { wordlist } from './data/words.js';
 //components
 import { StartScreen } from './components/StartScreen';
 import { GameOver } from './components/GameOver';
-import StartGame from './components/StartGame';
+import  StartGame  from './components/StartGame';
 
 
 
@@ -25,12 +25,18 @@ function App() {
   const startGame = () => {
       setGameStage(stages[1].name);
   }
+  const endGame = () => {
+    setGameStage(stages[2].name);
+  }
+  const RetryGame = () => {
+    setGameStage(stages[0].name);
+  }
   return (
     <>
       <div className='App'> 
         {gameStage === 'start' && <StartScreen startGame={startGame}/>}
-        {gameStage === 'game' && <StartGame/>}
-        {gameStage === 'end' && <GameOver/>}
+        {gameStage === 'game' && <StartGame End = {endGame}/>}
+        {gameStage === 'end' && <GameOver Retry = {RetryGame}/>}
       </div>
     </>
   )
