@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { StartScreen } from './components/StartScreen'
 import './App.css'
 
 function App() {
@@ -6,10 +7,9 @@ function App() {
 
   return (
     <>
-      <div> 
-       <h1>Jogo da Adivinhação</h1>
+      <div className='App'> 
+        <StartScreen />
       </div>
-      
     </>
   )
 }
