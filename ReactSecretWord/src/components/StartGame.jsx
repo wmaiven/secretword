@@ -1,31 +1,43 @@
 import './StartGame.css';
 
-const StartGame = ({End}) => {
+const StartGame = ({End,pickedWord,pickedCategory,letters,guessedLetter,wrongLetters,guesses,score}) => {
   return (
     <div className="game">
       <p className="points">
-        <span>Pontuação: 000 </span>
+        <span>Pontuação:{score} </span>
       </p>
-      <h1>Advinhe a palavra:</h1>
+      <h1>Advinhe a palavra:{pickedWord}</h1>
       <h3 className="tip">
-        Dica da palavra: <span>Dica...</span>
+        Dica da palavra: <span>{pickedCategory}</span>
       </h3>
+      <span>Você ainda tem {guesses} tentativas:</span>
       <div className="WordContainer">
-        <span className="Letter">A</span>
-        <span className="BlankSquare">B</span>
+        {letters.map((letter,i) => (
+            guessedLetter.includes(letter) ? (
+                <span key = {i} className='Letter'>{letter}</span>
+            ) : (
+               <span key = {i} className='BlankSquare'> </span>
+            )    
+        ))}
       </div>
       <div className="LetterContainer">
         <p>Tente advinhar uma letra da palavra:</p>
         <form>
+          <br/>
           <input type="text" name='letter' maxLength="1" required/>
-          <button>Jogar!</button>
+          <br/>
+          <br/>
+          <br/>
+          <button>Enviar!</button>
+          <br/>
+          <br/>
         </form>
       </div>
       <div className="WrongLetterContainer">
         <p>letras ja usadas:</p>
-        <span>a</span>
-        <span>a</span>
-        <span>a</span>
+        {wrongLetters.map((letter, i) => (
+          <span key={i}>{letter}, </span>
+        ) )}
       </div>
     </div>
   )
